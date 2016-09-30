@@ -1,10 +1,15 @@
 FROM centos:6
 MAINTAINER 178inaba <178inaba@users.noreply.github.com>
 
-# Install supervisor and wget git dependent packages.
+# Install wget git dependent packages.
 RUN yum -y install epel-release && yum -y update && \
-    yum -y install curl-devel expat-devel gcc gettext-devel openssh-clients openssl-devel perl-ExtUtils-MakeMaker supervisor wget && \
+    yum -y install curl-devel expat-devel gcc gettext-devel openssh-clients openssl-devel perl-ExtUtils-MakeMaker wget && \
     yum clean all
+
+# Install supervisor.
+RUN wget https://bootstrap.pypa.io/ez_setup.py -O - | python && \
+    easy_install supervisor && \
+    echo_supervisord_conf > /etc/supervisord.conf
 
 # Install git.
 ENV GIT_VER 2.10.0
