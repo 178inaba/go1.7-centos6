@@ -7,7 +7,7 @@ RUN yum -y update && \
     yum clean all
 
 # Install git.
-ENV GIT_VER 2.10.0
+ENV GIT_VER 2.10.2
 RUN wget https://www.kernel.org/pub/software/scm/git/git-$GIT_VER.tar.gz && \
     tar -zxf git-$GIT_VER.tar.gz && \
     rm -rf git-$GIT_VER.tar.gz && \
