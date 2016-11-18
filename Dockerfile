@@ -18,9 +18,10 @@ RUN wget https://www.kernel.org/pub/software/scm/git/git-$GIT_VER.tar.gz && \
     rm -rf git-$GIT_VER
 
 # Install golang.
-RUN wget https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz && \
-    tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz && \
-    rm -v go1.7.1.linux-amd64.tar.gz
+ENV GO_VER 1.7.3
+RUN wget https://storage.googleapis.com/golang/go$GO_VER.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go$GO_VER.linux-amd64.tar.gz && \
+    rm -v go$GO_VER.linux-amd64.tar.gz
 ENV PATH $PATH:/usr/local/go/bin
 
 # Install supervisor.
