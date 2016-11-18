@@ -1,7 +1,7 @@
 FROM centos:6
 MAINTAINER 178inaba <178inaba@users.noreply.github.com>
 
-# Install wget git dependent packages.
+# Install wget, git dependent package.
 RUN yum -y update && \
     yum -y install curl-devel expat-devel gcc gettext-devel openssh-clients openssl-devel perl-ExtUtils-MakeMaker wget && \
     yum clean all
